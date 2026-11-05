@@ -16,7 +16,7 @@
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
       --accent: #3b82f6;
-      --accent-glow: rgba(59, 130, 246, 0.15);
+      --accent-glow: rgba(59, 130, 246, 0.18);
       --badge-bg: rgba(59, 130, 246, 0.1);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -54,7 +54,7 @@
     }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
       gap: 24px;
     }
     @media (max-width: 480px) {
@@ -64,46 +64,68 @@
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 24px;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 20px;
       transition: all 0.25s ease;
       text-decoration: none;
       color: var(--text-main);
       position: relative;
-      overflow: hidden;
     }
     .card:hover {
       transform: translateY(-4px);
       border-color: var(--accent);
       background: var(--card-hover);
-      box-shadow: 0 12px 30px var(--accent-glow);
+      box-shadow: 0 14px 35px var(--accent-glow);
+    }
+    .card-image {
+      width: 100%;
+      height: 160px;
+      background: #0d1322;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card-image svg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .card-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+      justify-content: space-between;
     }
     .card-content {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
     }
     .badge {
       align-self: flex-start;
       background: var(--badge-bg);
       color: var(--accent);
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 600;
-      padding: 4px 10px;
+      padding: 3px 10px;
       border-radius: 99px;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
     .card h3 {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       font-weight: 600;
       color: #fff;
     }
     .card p {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--text-muted);
       line-height: 1.5;
     }
@@ -111,7 +133,8 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding-top: 12px;
+      padding-top: 14px;
+      margin-top: 14px;
       border-top: 1px solid var(--border);
     }
     .card-btn {
@@ -119,7 +142,7 @@
       align-items: center;
       gap: 6px;
       color: var(--accent);
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       font-weight: 600;
       transition: gap 0.15s ease;
     }
@@ -144,118 +167,267 @@
     <div class="grid">
       <!-- Project 1: Smart Teaching Board -->
       <a href="https://d1998pandey.github.io/smart-teaching-board/" class="card" target="_blank" style="border-color: rgba(59, 130, 246, 0.45);">
-        <div class="card-content">
-          <span class="badge">Digital Classroom & Recording Studio</span>
-          <h3>Smart Teaching Board (PDF / PPTX / Cam Recorder)</h3>
-          <p>Full-screen digital whiteboard with built-in 1080p lecture video recording, Class 11 & 12 Physics Formula Sheet, movable PDFs/diagrams, editable vectors/shapes, and fast HD PDF export.</p>
+        <div class="card-image">
+          <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#062c1e"/><stop offset="100%" stop-color="#0f172a"/></linearGradient>
+            </defs>
+            <rect width="400" height="200" fill="url(#bg1)"/>
+            <rect x="30" y="25" width="340" height="130" rx="6" fill="#131822" stroke="#2a3449" stroke-width="2"/>
+            <path d="M 60 90 Q 90 60 130 90 T 200 90" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
+            <text x="60" y="60" fill="#f8fafc" font-family="monospace" font-size="14" font-weight="bold">F⃗ = q(E⃗ + v⃗ × B⃗)</text>
+            <circle cx="310" cy="95" r="32" fill="#3b82f6" fill-opacity="0.25" stroke="#38bdf8" stroke-width="2"/>
+            <rect x="40" y="165" width="320" height="18" rx="4" fill="#1c2331"/>
+            <circle cx="55" cy="174" r="5" fill="#ef4444"/><circle cx="70" cy="174" r="5" fill="#38bdf8"/><circle cx="85" cy="174" r="5" fill="#22c55e"/>
+          </svg>
         </div>
-        <div class="card-footer">
-          <span class="card-btn">Launch Smart Board &rarr;</span>
+        <div class="card-body">
+          <div class="card-content">
+            <span class="badge">Digital Classroom & Recording Studio</span>
+            <h3>Smart Teaching Board (PDF / PPTX / Cam Recorder)</h3>
+            <p>Full-screen digital whiteboard with built-in 1080p lecture video recording, Class 11 & 12 Physics Formula Sheet, movable PDFs/diagrams, editable vectors/shapes, and fast HD PDF export.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-btn">Launch Smart Board &rarr;</span>
+          </div>
         </div>
       </a>
 
       <!-- Project 2: 3D Solar System & Spacetime Lab -->
       <a href="https://d1998pandey.github.io/3d-solar-system-spacetime-lab/" class="card" target="_blank">
-        <div class="card-content">
-          <span class="badge">Astrophysics & Gravitation</span>
-          <h3>3D Solar System & Spacetime Curvature Lab</h3>
-          <p>Interactive 3D planetary orbital mechanics and general relativity spacetime fabric visualiser exploring gravitational wells, Kepler's laws, and orbital velocities.</p>
+        <div class="card-image">
+          <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+            <radialGradient id="sunGlow" cx="0.5" cy="0.5" r="0.5"><stop offset="0%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#090d16"/></radialGradient>
+            <rect width="400" height="200" fill="#090d16"/>
+            <ellipse cx="200" cy="100" rx="160" ry="60" fill="none" stroke="#334155" stroke-width="1.5" stroke-dasharray="6,4"/>
+            <circle cx="200" cy="100" r="24" fill="url(#sunGlow)" filter="drop-shadow(0 0 10px #f59e0b)"/>
+            <circle cx="310" cy="75" r="10" fill="#38bdf8"/>
+            <circle cx="100" cy="125" r="7" fill="#ef4444"/>
+          </svg>
         </div>
-        <div class="card-footer">
-          <span class="card-btn">Launch Simulation &rarr;</span>
+        <div class="card-body">
+          <div class="card-content">
+            <span class="badge">Astrophysics & Gravitation</span>
+            <h3>3D Solar System & Spacetime Curvature Lab</h3>
+            <p>Interactive 3D planetary orbital mechanics and general relativity spacetime fabric visualiser exploring gravitational wells, Kepler's laws, and orbital velocities.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-btn">Launch Simulation &rarr;</span>
+          </div>
         </div>
       </a>
 
       <!-- Project 3: 3D Mathematical Universe -->
       <a href="https://d1998pandey.github.io/3d-mathematical-universe/" class="card" target="_blank">
-        <div class="card-content">
-          <span class="badge">Mathematical Physics</span>
-          <h3>3D Mathematical Universe & Surfaces Lab</h3>
-          <p>Interactive 3D visualization of mathematical functions, parametric surfaces, vector fields, and geometric transformations for physics and calculus.</p>
+        <div class="card-image">
+          <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="200" fill="#07090e"/>
+            <path d="M 50 140 Q 125 30 200 140 T 350 140" fill="none" stroke="#a855f7" stroke-width="3"/>
+            <path d="M 50 100 Q 125 180 200 100 T 350 100" fill="none" stroke="#38bdf8" stroke-width="3"/>
+            <line x1="200" y1="20" x2="200" y2="180" stroke="#2a3449" stroke-width="1.5"/>
+            <line x1="40" y1="100" x2="360" y2="100" stroke="#2a3449" stroke-width="1.5"/>
+          </svg>
         </div>
-        <div class="card-footer">
-          <span class="card-btn">Launch Simulation &rarr;</span>
+        <div class="card-body">
+          <div class="card-content">
+            <span class="badge">Mathematical Physics</span>
+            <h3>3D Mathematical Universe & Surfaces Lab</h3>
+            <p>Interactive 3D visualization of mathematical functions, parametric surfaces, vector fields, and geometric transformations for physics and calculus.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-btn">Launch Simulation &rarr;</span>
+          </div>
         </div>
       </a>
 
       <!-- Project 4: 3D Optics & Prism Dispersion Lab -->
       <a href="https://d1998pandey.github.io/3d-optics-prism-lab/" class="card" target="_blank">
-        <div class="card-content">
-          <span class="badge">Class 12 Wave & Ray Optics</span>
-          <h3>3D Optics & Prism Dispersion Laboratory</h3>
-          <p>Interactive 3D optical bench demonstrating refraction through a triangular glass prism, angle of deviation, Cauchy's dispersion of white light into spectrum, and total internal reflection.</p>
+        <div class="card-image">
+          <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="200" fill="#090d16"/>
+            <polygon points="200,45 130,150 270,150" fill="rgba(56,189,248,0.15)" stroke="#38bdf8" stroke-width="2"/>
+            <line x1="60" y1="110" x2="165" y2="110" stroke="#facc15" stroke-width="3"/>
+            <path d="M 165 110 L 210 130 L 320 90" fill="none" stroke="#ef4444" stroke-width="2.5"/>
+            <path d="M 165 110 L 210 135 L 330 130" fill="none" stroke="#3b82f6" stroke-width="2.5"/>
+          </svg>
         </div>
-        <div class="card-footer">
-          <span class="card-btn">Launch Simulation &rarr;</span>
+        <div class="card-body">
+          <div class="card-content">
+            <span class="badge">Class 12 Wave & Ray Optics</span>
+            <h3>3D Optics & Prism Dispersion Laboratory</h3>
+            <p>Interactive 3D optical bench demonstrating refraction through a triangular glass prism, angle of deviation, Cauchy's dispersion of white light into spectrum, and total internal reflection.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-btn">Launch Simulation &rarr;</span>
+          </div>
         </div>
       </a>
 
       <!-- Project 5: 3D Wave Physics Lab -->
       <a href="https://d1998pandey.github.io/3d-wave-physics-lab/" class="card" target="_blank">
-        <div class="card-content">
-          <span class="badge">Oscillations & Waves</span>
-          <h3>3D Wave Physics & Interference Lab</h3>
-          <p>Real-time 3D wave propagation simulator covering transverse and longitudinal waves, superposition, standing waves, phase difference, and interference patterns.</p>
+        <div class="card-image">
+          <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="200" fill="#0b0e14"/>
+            <path d="M 30 100 Q 80 40 130 100 T 230 100 T 330 100 T 380 100" fill="none" stroke="#22c55e" stroke-width="3.5"/>
+            <path d="M 30 100 Q 80 160 130 100 T 230 100 T 330 100 T 380 100" fill="none" stroke="#38bdf8" stroke-width="3.5" stroke-dasharray="4,4"/>
+          </svg>
         </div>
-        <div class="card-footer">
-          <span class="card-btn">Launch Simulation &rarr;</span>
+        <div class="card-body">
+          <div class="card-content">
+            <span class="badge">Oscillations & Waves</span>
+            <h3>3D Wave Physics & Interference Lab</h3>
+            <p>Real-time 3D wave propagation simulator covering transverse and longitudinal waves, superposition, standing waves, phase difference, and interference patterns.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-btn">Launch Simulation &rarr;</span>
+          </div>
         </div>
       </a>
 
       <!-- Project 6: 3D Coordinate Systems Lab -->
       <a href="https://d1998pandey.github.io/3d-coordinate-systems-lab/" class="card" target="_blank">
-        <div class="card-content">
-          <span class="badge">Vector Calculus & Geometry</span>
-          <h3>3D Coordinate Systems Lab (Cartesian, Cylindrical, Spherical)</h3>
-          <p>Interactive 3D visualizer for point projections, unit vectors, and differential volume elements across Cartesian (x, y, z), Cylindrical (ρ, φ, z), and Spherical (r, θ, φ) coordinates.</p>
+        <div class="card-image">
+          <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="200" fill="#090d16"/>
+            <line x1="200" y1="160" x2="200" y2="50" stroke="#22c55e" stroke-width="2.5"/><polygon points="200,42 196,52 204,52" fill="#22c55e"/>
+            <line x1="200" y1="160" x2="100" y2="120" stroke="#ef4444" stroke-width="2.5"/><polygon points="92,117 102,116 99,124" fill="#ef4444"/>
+            <line x1="200" y1="160" x2="300" y2="120" stroke="#3b82f6" stroke-width="2.5"/><polygon points="308,117 301,124 298,116" fill="#3b82f6"/>
+          </svg>
         </div>
-        <div class="card-footer">
-          <span class="card-btn">Launch Simulation &rarr;</span>
+        <div class="card-body">
+          <div class="card-content">
+            <span class="badge">Vector Calculus & Geometry</span>
+            <h3>3D Coordinate Systems Lab (Cartesian, Cylindrical, Spherical)</h3>
+            <p>Interactive 3D visualizer for point projections, unit vectors, and differential volume elements across Cartesian (x, y, z), Cylindrical (ρ, φ, z), and Spherical (r, θ, φ) coordinates.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-btn">Launch Simulation &rarr;</span>
+          </div>
         </div>
       </a>
 
       <!-- Project 7: 3D Electric Generator & Motor Lab -->
       <a href="https://d1998pandey.github.io/3d-electric-generator-motor-lab/" class="card" target="_blank">
-        <div class="card-content">
-          <span class="badge">Class 12 Electromagnetic Induction</span>
-          <h3>3D Electric Generator & DC Motor Laboratory</h3>
-          <p>Interactive 3D rotating armature coil inside a magnetic field demonstrating Faraday's law, sinusoidal AC EMF generation, slip rings vs split-ring commutator, and magnetic torque.</p>
+        <div class="card-image">
+          <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="200" fill="#090d16"/>
+            <rect x="110" y="60" width="40" height="80" rx="6" fill="#ef4444"/><text x="123" y="104" fill="#fff" font-weight="bold">N</text>
+            <rect x="250" y="60" width="40" height="80" rx="6" fill="#3b82f6"/><text x="267" y="104" fill="#fff" font-weight="bold">S</text>
+            <rect x="170" y="80" width="60" height="40" rx="4" fill="none" stroke="#facc15" stroke-width="3" transform="rotate(25 200 100)"/>
+          </svg>
         </div>
-        <div class="card-footer">
-          <span class="card-btn">Launch Simulation &rarr;</span>
+        <div class="card-body">
+          <div class="card-content">
+            <span class="badge">Class 12 Electromagnetic Induction</span>
+            <h3>3D Electric Generator & DC Motor Laboratory</h3>
+            <p>Interactive 3D rotating armature coil inside a magnetic field demonstrating Faraday's law, sinusoidal AC EMF generation, slip rings vs split-ring commutator, and magnetic torque.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-btn">Launch Simulation &rarr;</span>
+          </div>
         </div>
       </a>
 
       <!-- Project 8: Interactive Ray Optics Lab -->
       <a href="https://d1998pandey.github.io/interactive-ray-optics-lab/" class="card" target="_blank">
-        <div class="card-content">
-          <span class="badge">Geometrical Optics</span>
-          <h3>Interactive Ray Optics & Mirror/Lens Bench</h3>
-          <p>Dynamic ray-tracing workbench for concave/convex mirrors, lenses, slabs, and multi-element optical systems with real/virtual image analysis.</p>
+        <div class="card-image">
+          <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="200" fill="#090d16"/>
+            <line x1="40" y1="100" x2="360" y2="100" stroke="#334155" stroke-width="1.5" stroke-dasharray="4,4"/>
+            <path d="M 200 50 Q 220 100 200 150" fill="none" stroke="#38bdf8" stroke-width="4"/>
+            <line x1="40" y1="70" x2="200" y2="70" stroke="#facc15" stroke-width="2.5"/>
+            <line x1="200" y1="70" x2="360" y2="110" stroke="#facc15" stroke-width="2.5"/>
+          </svg>
         </div>
-        <div class="card-footer">
-          <span class="card-btn">Launch Simulation &rarr;</span>
+        <div class="card-body">
+          <div class="card-content">
+            <span class="badge">Geometrical Optics</span>
+            <h3>Interactive Ray Optics & Mirror/Lens Bench</h3>
+            <p>Dynamic ray-tracing workbench for concave/convex mirrors, lenses, slabs, and multi-element optical systems with real/virtual image analysis.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-btn">Launch Simulation &rarr;</span>
+          </div>
         </div>
       </a>
 
       <!-- Project 9: Free Electrons & Electrostatic Induction Lab -->
       <a href="https://d1998pandey.github.io/electrostatics-3d-lab/" class="card" target="_blank">
-        <div class="card-content">
-          <span class="badge">Class 12 Electrostatics</span>
-          <h3>Free Electrons & Electrostatic Induction (3D Lab)</h3>
-          <p>Interactive 3D cutaway metal block featuring a movable +/- charged induction rod, 0.1x–10x electron speed control, up to 80 conduction electrons, excess surface charge slider, and Web Audio SFX.</p>
+        <div class="card-image">
+          <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="200" fill="#090d16"/>
+            <rect x="120" y="50" width="160" height="100" rx="8" fill="rgba(71,85,105,0.4)" stroke="#94a3b8" stroke-width="2"/>
+            <circle cx="150" cy="80" r="10" fill="#ef4444"/><text x="146" y="84" fill="#fff" font-size="12" font-weight="bold">+</text>
+            <circle cx="210" cy="80" r="10" fill="#ef4444"/><text x="206" y="84" fill="#fff" font-size="12" font-weight="bold">+</text>
+            <circle cx="180" cy="120" r="8" fill="#38bdf8"/><text x="176" y="124" fill="#fff" font-size="11" font-weight="bold">-</text>
+            <circle cx="240" cy="120" r="8" fill="#38bdf8"/><text x="236" y="124" fill="#fff" font-size="11" font-weight="bold">-</text>
+          </svg>
         </div>
-        <div class="card-footer">
-          <span class="card-btn">Launch Simulation &rarr;</span>
+        <div class="card-body">
+          <div class="card-content">
+            <span class="badge">Class 12 Electrostatics</span>
+            <h3>Free Electrons & Electrostatic Induction (3D Lab)</h3>
+            <p>Interactive 3D cutaway metal block featuring a movable +/- charged induction rod, 0.1x–10x electron speed control, up to 80 conduction electrons, excess surface charge slider, and Web Audio SFX.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-btn">Launch Simulation &rarr;</span>
+          </div>
         </div>
       </a>
 
       <!-- Project 10: 3D Cannon Physics Challenge -->
       <a href="https://d1998pandey.github.io/projectile-cannon-3d-game/" class="card" target="_blank">
-        <div class="card-content">
-          <span class="badge">Class 11 Kinematics Game</span>
-          <h3>Cannon Physics Challenge (3D Projectile Game)</h3>
-          <p>Mission-based 3D projectile motion game with achievable range/height/time challenges, cliff height adjuster, celebratory fireworks, and live velocity vectors.</p>
+        <div class="card-image">
+          <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="200" fill="#090d16"/>
+            <path d="M 60 160 Q 200 20 340 160" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-dasharray="6,4"/>
+            <rect x="50" y="140" width="30" height="20" fill="#64748b" transform="rotate(-30 65 150)"/>
+            <circle cx="340" cy="160" r="12" fill="#22c55e"/>
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="card-content">
+            <span class="badge">Class 11 Kinematics Game</span>
+            <h3>Cannon Physics Challenge (3D Projectile Game)</h3>
+            <p>Mission-based 3D projectile motion game with achievable range/height/time challenges, cliff height adjuster, celebratory fireworks, and live velocity vectors.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-btn">Launch Simulation &rarr;</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Project 11: 3D Charged Particle Trajectory Simulator -->
+      <a href="https://d1998pandey.github.io/lorentz-force-3d-simulation/" class="card" target="_blank">
+        <div class="card-image">
+          <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="200" fill="#090d16"/>
+            <path d="M 50 140 C 120 40, 200 160, 350 60" fill="none" stroke="#a855f7" stroke-width="3.5"/>
+            <circle cx="350" cy="60" r="7" fill="#facc15"/>
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="card-content">
+            <span class="badge">Class 12 Electromagnetism</span>
+            <h3>3D Charged Particle Trajectory Simulator</h3>
+            <p>Real-time RK4 Lorentz force 3D visualiser for charged particles in uniform E and B fields, demonstrating circular, helical, cycloidal drift, and velocity selector trajectories.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-btn">Launch Simulation &rarr;</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Project 12: Interactive Vector Laboratory -->
+      <a href="https://d1998pandey.github.io/vector-lab-simulation/" class="card" target="_blank">
+        <div class="card-image">
+          <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="200" fill="#090d16"/>
+            <line x1="80" y1="140" x2="240" y2="60" stroke="#ef4444" stroke-width="3"/><polygon points="248,56 238,62 241,54" fill="#ef4444"/>
+            <line x1="80" y1="140" x2="280" y2="120" stroke="#3b82f6" stroke-width="3"/><polygon points="288,119 279,126 278,117" fill="#3b82f6"/>
+            <line x1="80" y1="140" x2="320" y2="40" stroke="#22c55e" stroke-width="2.5" stroke-dasharray="5,5"/>
+          </svg>
+      le motion game with achievable range/height/time challenges, cliff height adjuster, celebratory fireworks, and live velocity vectors.</p>
         </div>
         <div class="card-footer">
           <span class="card-btn">Launch Simulation &rarr;</span>
